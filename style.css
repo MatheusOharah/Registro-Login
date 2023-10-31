@@ -1,0 +1,331 @@
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    background: #020410; /* define a cor do website */
+}
+    /* parte de cima do website */
+.header {
+    position: fixed;
+    top: 0;
+    left: 0; /* por onde o header irá começar */
+    width: 100%; /* o tamanho do header */
+    padding: 25px 12.5%; /* expessura do header */
+    background: transparent;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 100;
+}
+
+    /* barra de navegação */
+.navbar a {
+    position: relative;
+    font-size: 16px; /* tamanho das letras */
+    color: #e4e4e4; /* cor das letras */
+    text-decoration: none; /* remove a barra em baixo das palavras */
+    font-weight: 600; /* determina o quão nitido ficará as letras, quanto menor, menos nitido, valores de 100 a 1000 */
+    margin-right: 30px; /* distância do elemento para o elemento conseguinte */
+}
+
+/* Barra que vai ficar em qualquer quanto que você quiser */
+.navbar a::after {
+    content: '';
+    position: absolute;
+    left: 0; /* por onde a barra começara a aparecer, leia o widght */
+    bottom: -4px; /* barra na parte de baixo das palavras, quanto maior o valor mais perto ela ia ficar */
+    width: 103%; /* o quão grande será a barra, começando pela esquerda */
+    height: 2px;
+    background: #e4e4e4; /* a cor da barra */
+    border-radius: 5px;
+    transform: translateY(7px); /* faz a mesma coisa que o bottom, ainda não entendo o por que preciso dos 2 */
+    opacity: 0; /* colocando a opacity 0 dentro da .navbar a::after e opacity 1 na hover::after fará com que a barra fique invisivel, mas quando você colocar a seta em cima da palavra, a barra ira aparecer e subir */
+    transition: .5s; /* velocidade da barra até chegar a palavra */
+}
+
+/* Animação da barra, completando a navbar a::after */
+.navbar a:hover::after {
+    transform: translateY(0); /* se você colocar qualquer outra quantidade além do 0 a barra não irá se movimentar, não compreendo do por que */
+    opacity: 1; /* colocando a opacity 0 dentro da .navbar a::after e opacity 1 na hover::after fará com que a barra fique invisivel, mas quando você colocar a seta em cima da palavra, a barra ira aparecer e subir */
+}
+
+/* caixa da barra de pesquisa */
+.search-bar {
+    width: 200px;
+    height: 45px;
+    background: transparent;
+    border: 2px solid #e4e4e4; /*define a cor da barra */
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+}
+
+/* caixa dentro da barra de pesquisa */
+.search-bar input {
+    width: 100%;
+    background: transparent;
+    border: none; /* remove a caixa que contorna onde irá fica as letras/números */
+    outline: none; /* faz a mesma coisa que o border, não entendi */
+    font-size: 16px; /* define qual o tamanho das letras/números dentro da barra de pesquisa */
+    color: #e4e4e4; /* define a cor da linha que indica que onde você ira digitar */
+    padding-left: 10px; /* define a distância da onde as letras/números da borda, começando pela esquerda */
+}
+
+/* lupa */
+.search-bar input::placeholder {
+    color: #e4e4e4;
+}
+
+/* Lupa */
+.search-bar button {
+    width: 40px; /* largura do lupa <-- --> */
+    height: 100%; /* altura da lupa */
+    background: transparent; /* vai deixar o quadrado em volta da lupa invisivel */
+    border: none; /* remove a borda */
+    outline: none; /* remove a borda, mesma coisa que o border, não sei do por que */
+    display: flex;
+    justify-content: center; /* alinha onde vai ficar a lupa, center */
+    align-items: center; /* alinha onde vai ficar a lupa  <-- -->*/
+    cursor: pointer; /* quando colocar a seta em cima, vai virar a mãozinha, indicando que da pra clicar */
+}
+
+/* tamanho e cor da lupa */
+.search-bar button i {
+    font-size: 22px; /* tamanho da lupa */
+    color: #e4e4e4; /* cor da lupa */
+}
+
+.background {
+    width: 100%;
+    height: 100vh;
+    background: url(assets/Cosmos.jpg) no-repeat;
+    background-size: cover;
+    background-position: center;
+    filter: blur(4px);
+}
+
+/* Wallpaper */
+
+.wallpaper {
+    position: absolute;
+    top: 75%; /* altura do wallpaper */
+    left: 50%; /* onde vai ficar o wallpaper <-- --> começando pela esquerda */
+    transform: translate(-50%, -50%);
+    width: 75%; /* largura wallpaper */
+    height: 550px; /* altura wallpaper */
+    background: url(assets/Cosmos.jpg) no-repeat;
+    background-size: cover;
+    background-position: center;
+    border-radius: 10px;
+    margin-top: -120px; /* define a altura do wallpaper, quanto maior ele for, maior a página será */
+}
+
+/* parte esquerda do conteúdo dentro do cosmo */
+.wallpaper .content {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 58%;
+    height: 100%;
+    background: transparent;
+    padding: 80px;
+    color: #e4e4e4;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+}
+
+/* logo */
+.content .logo {
+    font-size: 30px; /* tamanho da logo */
+}
+
+/* configurar o ''Welcome'' */
+.text-sci h2 {
+    font-size: 40px;
+    line-height: 1;
+}
+
+/* configurar o ''To my site'' */
+.text-sci h2 span {
+    font-size: 25px;
+}
+
+/* configurar o Lorem */
+.text-sci p {
+    font-size: 16px; /* tamanho das letras/números no lorem */
+    margin: 20px 0; /* distancía o lorem das outras outras */
+}
+
+.social-icons a i {
+    font-size: 22px; /* tamanho dos icones */
+    color: #e4e4e4; /* cor dos icones */
+    margin-right: 10px; /* distanciar os icones indo para a direita */
+    transition: .5s ease;
+}
+
+.social-icons a:hover i {
+    transform: scale(1.2); /* Quando coloca a seta em cima, o icone vai aumentar de tamanho */
+}
+
+/* parte direita do conteúdo dentro do cosmo */
+.wallpaper .logreg-box {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: calc(100% - 58%);
+    height: 100%;
+    overflow: hidden; /* Esconde a tela de registro na direita */
+}
+
+/* Configura a parte do login */
+.logreg-box .form-box {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    backdrop-filter: blur(20px); /* Faz a imagem ficar embaçada */
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+    color: #e4e4e4;
+}
+
+.logreg-box .form-box.login {
+    transform: translateX(0);
+    transition: transform .6s ease;
+    transition-delay: .7s;
+}
+
+.logreg-box.active .form-box.login {
+    transform: translateX(430px);
+    transition-delay: 0s;
+}
+
+.logreg-box .form-box.register {
+    transform: translateX(430px);
+    transition: transform .6s ease;
+    transition-delay: 0s;
+}
+
+.logreg-box.active .form-box.register {
+    transform: translateX(0);
+    transition-delay: .7s;
+}
+
+.form-box h2 {
+    font-size: 32px; /* tamanho da palavra Sign in */
+    text-align: center; /* Coloca no centro a palavra Sign in */
+}
+
+.form-box .input-box {
+    position: relative;
+    width: 340px;
+    height: 50px;
+    border-bottom: 2px solid #e4e4e4;
+    margin: 30px 0;
+}
+
+.input-box input {
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    border: none; /* tira as bordas */
+    outline: none; /*tira as bordas */
+    font-size: 16px;
+    color: #e4e4e4;
+    font-weight: 500;
+    padding-right: 28px; /* exemplo: Quando você colocar muitas caracteres a letra vai ir por cima dos icones, com padding right os caracteres não irão sobrepor a logo */
+}
+
+.input-box label {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+    font-size: 16px;
+    font-weight: 500;
+    pointer-events: none;
+    transition: .5s ease;
+}
+
+.input-box input:focus~label,
+.input-box input:valid~label {
+    top: -5px;
+}
+
+/* icones dentro do login */
+.input-box .icon {
+    position: absolute;
+    top: 13px;
+    right: 0;
+    font-size: 19px;
+}
+
+/* parte de baixo do login, configurando o tamanho e aonde vai ficar as palavras, separando e deixando bonitinho kkk */
+.form-box .remember-forgot {
+    font-size: 14.5px;
+    font-weight: 500;
+    margin: -15px 0 15px;
+    display: flex;
+    justify-content: space-between; 
+}
+
+/* "Remember me" */
+.remember-forgot label input {
+    accent-color: #e4e4e4; /* muda a cor quando você clica em remember me, era azul */
+    margin-right: 3px;
+}
+
+/* "Forgot Password" */
+.remember-forgot a {
+    color: #e4e4e4;
+    text-decoration: none; /* tira a barra de baixo do "Forgot Password" */
+}
+
+/* Linha "Forgot Password" */
+.remember-forgot a:hover {
+    text-decoration: underline; /* Quando colocar a seta em cima vai aparecer uma barra em baixo */
+}
+
+/* "Sign in" */
+.btn {
+    width: 100%;
+    height: 45px;
+    background: #c4103d; /* Cor da caixa "Sign in" */
+    border: none;
+    outline: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px; /* Tamanho do "Sign in" */
+    color: #e4e4e4; /* Cor do "Sign in" */
+    font-weight: 500;
+    box-shadow: 0 0 10px rgba(0, 0, 0, .5); /* Sombras entorno da caixa "Sign in" */ 
+}
+
+/* "Don't have an account" */
+.form-box .login-register {
+    font-size: 14.5px;
+    font-weight: 500;
+    text-align: center;
+    margin-top: 25px;
+}
+
+/* "Sign up" */
+.login-register p a {
+    color: #e4e4e4;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.login-register p a:hover {
+    text-decoration: underline; /* Quando colocar a seta em cima, aparece um risco em baixo da palavra "Sign up" */
+}
